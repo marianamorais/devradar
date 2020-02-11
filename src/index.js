@@ -1,8 +1,17 @@
 const express = require('express');
+const mongoose = require ('mongoose');
+const routes = require('./routes')
 
 const app = express();
 
+
+mongoose.connect('', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 app.use(express.json());
+app.use(routes);
 
 // Métodos HTTP: GET, POST, PUT, DELETE
 
@@ -13,10 +22,5 @@ app.use(express.json());
 //Body: request.body (Dados para criação ou alteração de um registro)
 
 // MongoDB (Não-relacional)
-
-app.post('/users', (request, response) => {
-  console.log(request.query);
-  return response.json({ message: 'Hello person'});
-});
 
 app.listen(3333);
