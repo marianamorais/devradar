@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const PointSchema = require ('./utils/PointSchema');
+
+mongoose.set('useCreateIndex', true);
 
 //Estruturacao de uma entidade em um BD
 const DevSchema = new mongoose.Schema({
@@ -7,6 +10,10 @@ const DevSchema = new mongoose.Schema({
     bio: String,
     avatar_url: String,
     techs: [String],
+    location: {
+        type: PointSchema,
+        index:'2dsphere'
+    }
 });
 
-module.exports = mongoose.model('Dev', Schema);
+module.exports = mongoose.model('Dev', DevSchema);
