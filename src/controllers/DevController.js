@@ -26,8 +26,8 @@ module.exports = {
       const techsArray = parseStringAsArray(techs); //Trim = remove espaçamentos antes e depois de Strings
 
       const location = {
-        type: "Point",
-        coordinates: [longitude, latitude]
+        type: 'Point',
+        coordinates: [longitude, latitude],
       };
 
       dev = await Dev.create({
@@ -41,5 +41,13 @@ module.exports = {
     }
 
     return response.json(dev);
-  }
+  },
+
+  async update () {
+
+  },
+
+  async destroy () {
+
+  },
 };
